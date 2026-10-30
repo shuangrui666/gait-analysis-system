@@ -14,6 +14,8 @@ A reproducible experimental project for gait acceleration data collection, signa
 
 通过对采集数据进行整理、质量检查、预处理、特征提取和可视化，探索不同运动状态下加速度信号的变化规律及其特征差异。
 
+项目不仅关注最终的数据分析结果，也重视实验过程的真实性、数据管理的规范性以及实验结果的可追溯性。
+
 ### 1.2 研究目标
 
 - 采集不同运动状态下的加速度数据。
@@ -24,8 +26,6 @@ A reproducible experimental project for gait acceleration data collection, signa
 - 探索不同运动状态的特征对比与区分方法。
 
 ### 1.3 研究问题
-
-本项目重点关注以下问题：
 
 1. 不同运动状态下的加速度信号具有哪些变化特征？
 2. 手机放置位置和姿态是否会影响采集结果？
@@ -42,12 +42,12 @@ A reproducible experimental project for gait acceleration data collection, signa
 | 类别 | 英文名称 | 实验说明 |
 |---|---|---|
 | 静止 | Static | 人体保持静止 |
-| 正常行走 | Normal Walking | 平地正常速度行走 |
+| 平地正常行走 | Normal Walking | 平地正常速度行走 |
 | 快跑 | Running | 按实验方案规定的速度跑步 |
 | 上楼梯 | Stair Ascent | 沿楼梯向上行走 |
 | 下楼梯 | Stair Descent | 沿楼梯向下行走 |
 
-注：以上是计划研究的类别。实际数据是否齐全、是否符合正式实验条件，需要结合数据登记表核实。
+注：以上为计划研究的类别。实际数据是否齐全、是否符合正式实验条件，以数据登记表和实验记录为准。其他探索性动作数据应单独标注，不直接与上述类别混淆。
 
 ---
 
@@ -55,10 +55,10 @@ A reproducible experimental project for gait acceleration data collection, signa
 
 ### 3.1 数据采集与分析工具
 
-- Android Smartphone：加速度数据采集设备。
-- Phyphox：传感器数据采集软件。
-- Python：数据处理、特征提取和可视化。
-- GitHub：项目版本管理、实验文档和数据归档。
+- **Android Smartphone**：加速度数据采集设备。
+- **Phyphox**：传感器数据采集软件。
+- **Python**：数据处理、特征提取和可视化。
+- **GitHub**：项目版本管理、实验文档和数据归档。
 
 ### 3.2 AI-assisted Tools（AI辅助工具）
 
@@ -73,7 +73,7 @@ AI 工具主要用于实验方案讨论、技术问题排查、资料整理、�
 
 AI 生成的内容均需要人工核查。实验事实、数据结果和最终结论以实际实验及验证结果为准。
 
-相关使用记录与对话档案见 `ai_collaboration/`。
+相关使用记录见 `ai_collaboration/`。
 
 ---
 
@@ -96,11 +96,11 @@ AI 生成的内容均需要人工核查。实验事实、数据结果和最终�
 
 ## 5. Experimental Iteration（实验迭代）
 
-本项目保留从初步实验到方案改进的完整过程。
+本项目保留从初步探索到实验方案改进的过程，记录实验中发现的问题、调整措施和后续验证情况。
 
-实验过程中产生的初步数据、异常数据、失败尝试和后续补测数据均根据实际情况分类归档。
+### 5.1 实验迭代流程
 
-
+```mermaid
 flowchart TD
     A["初步手持采集"] --> B["发现手机放置方式不一致"]
     B --> C["尝试裤袋采集"]
@@ -108,8 +108,19 @@ flowchart TD
     D --> E["进一步统一采集条件"]
     E --> F["正式数据采集与分析"]
 
+    style A fill:#e8f1ff,stroke:#4776a8
+    style B fill:#fff3df,stroke:#c28b36
+    style C fill:#e8f1ff,stroke:#4776a8
+    style D fill:#fff3df,stroke:#c28b36
+    style E fill:#e5f4e8,stroke:#4c956c
+    style F fill:#e5f4e8,stroke:#4c956c
+```
 
-重点记录：
+注：该图展示实验迭代的整体思路，不代表所有阶段均已完成。具体实验时间、数据和方案调整情况以实验日志及原始数据记录为准。
+
+### 5.2 实验过程记录
+
+实验过程中重点记录：
 
 - 不同实验轮次的采集方式。
 - 手机放置位置和姿态的调整。
@@ -117,8 +128,9 @@ flowchart TD
 - 实验过程中发现的问题。
 - 实验方案的修改原因。
 - 数据筛选和排除的依据。
+- 补测前后的实验条件与数据变化。
 
-早期数据不会因为不符合后续实验规范而被随意删除，而是保留其原始文件和实验背景。
+早期数据不会因为不符合后续实验规范而被随意删除，而是保留原始文件和实验背景，并根据采集条件分类管理。
 
 详细记录见 `experiment/`。
 
@@ -136,7 +148,7 @@ flowchart TD
 | `data/selected/` | 正式分析选用的数据 |
 | `data/metadata/` | 数据登记表、采集条件及元数据 |
 
-### 数据管理原则
+### 6.1 数据管理原则
 
 1. 原始数据尽可能保持不变。
 2. 保留原始文件名和数据来源。
@@ -146,9 +158,63 @@ flowchart TD
 6. 异常数据和未采用数据应记录原因。
 7. 不将不同采集条件的数据未经评估直接混合分析。
 
+### 6.2 数据追溯
+
+每份正式分析数据尽可能关联：
+
+- 原始数据文件。
+- 实验编号。
+- 实验采集条件。
+- 对应实验日志。
+- 对应视频证据（如果有）。
+- 数据处理方法及处理结果。
+
 ---
 
-## 7. AI Collaboration Records（AI协作记录）
+## 7. Experimental Evidence（实验过程证据）
+
+为提高实验过程的真实性、透明度和可追溯性，本项目对部分实验操作进行视频记录，并将视频作为实验过程的辅助证据进行归档。
+
+### 7.1 视频记录内容
+
+视频记录可能包括：
+
+- Phyphox 传感器实验的设置过程。
+- 手机放置方式及实验设备状态。
+- 静止、正常行走、快跑和上下楼梯等动作的实际采集过程。
+- 实验操作过程中出现的问题及调整过程。
+- 后续补测和实验方案改进过程。
+
+### 7.2 视频与数据的对应关系
+
+为了方便核查，每段视频尽可能关联对应的实验编号和原始数据文件。
+
+视频档案登记信息包括：
+
+| 字段 | 说明 |
+|---|---|
+| Video ID | 视频编号 |
+| Recording Date | 录制日期 |
+| Experiment ID | 对应实验编号 |
+| Motion Type | 运动类别 |
+| Related Data | 对应原始数据文件 |
+| Description | 视频内容说明 |
+
+### 7.3 证据管理原则
+
+1. 保留原始视频，不随意剪辑或覆盖。
+2. 如需剪辑用于展示，应同时保留原始视频。
+3. 视频记录与实验日志、原始数据建立对应关系。
+4. 不使用摆拍或后期制作的视频冒充真实实验记录。
+5. 对无法确认的视频时间、实验条件和数据对应关系，如实标注待核实。
+
+视频档案目录：`evidence/videos/`
+
+视频文件较大时，可使用 Git LFS 或其他可访问的存储方式，并在仓库中保留视频索引和访问说明。
+
+---
+
+## 8. AI Collaboration Records（AI协作记录）
 
 为保证 AI 辅助过程透明、可追溯，本项目单独保存 AI 协作档案。
 
@@ -163,13 +229,13 @@ flowchart TD
 
 完整档案见 `ai_collaboration/`。
 
-AI 输出不直接作为实验结论或未经验证的技术依据。
+AI 输出不直接作为实验结论或未经验证的技术依据。所有关键实验决策和最终分析结果均需要结合实际数据进行人工核查。
 
 ---
 
-## 8. Project Documentation（项目文档）
+## 9. Project Documentation（项目文档）
 
-### 8.1 项目设计
+### 9.1 项目设计
 
 - [项目概述](docs/project_overview.md)
 - [任务要求](docs/requirements.md)
@@ -178,7 +244,7 @@ AI 输出不直接作为实验结论或未经验证的技术依据。
 - [数据字典](docs/data_dictionary.md)
 - [数据质量标准](docs/data_quality_criteria.md)
 
-### 8.2 实验过程
+### 9.2 实验过程
 
 - [实验日志](experiment/experiment_log.md)
 - [实验迭代历史](experiment/trial_history.md)
@@ -186,19 +252,26 @@ AI 输出不直接作为实验结论或未经验证的技术依据。
 - [实验方案变更记录](experiment/protocol_changes.md)
 - [关键决策记录](experiment/decision_log.md)
 
-### 8.3 AI协作
+### 9.3 实验过程证据
+
+- [证据档案说明](evidence/README.md)
+- [证据索引表](evidence/evidence_index.csv)
+
+### 9.4 AI协作
 
 - [AI协作档案](ai_collaboration/README.md)
 - [AI工具登记表](ai_collaboration/ai_tools_registry.md)
 
-### 8.4 数据与分析
+### 9.5 数据与分析
 
 - [数据登记表](data/metadata/dataset_inventory.csv)
 - [最终实验报告](docs/final_report.md)
 
+注：上述链接需要在对应文件创建后才能正常访问。
+
 ---
 
-## 9. Reproducibility and Quality Control（可复现性与质量控制）
+## 10. Reproducibility and Quality Control（可复现性与质量控制）
 
 为了提高实验过程的可追溯性和分析结果的可靠性，本项目逐步建立以下规范：
 
@@ -209,22 +282,22 @@ AI 输出不直接作为实验结论或未经验证的技术依据。
 - 对分析代码进行必要的测试。
 - 保留实验方案变更和重要决策记录。
 - 区分探索性分析与正式分析。
+- 将实验视频、原始数据和实验日志建立对应关系。
 
 项目最终分析应尽可能能够从原始数据、处理代码和实验记录中复现。
 
 ---
 
-## 10. Project Status（项目状态）
+## 11. Project Status（项目状态）
 
-当前阶段：
-
-**实验历史整理与数据规范化。**
+**当前阶段：实验历史整理与数据规范化。**
 
 后续计划：
 
 - 完善历史实验记录。
 - 整理所有原始数据。
 - 核实各数据文件的采集条件。
+- 整理实验视频及对应的数据证据。
 - 统一正式实验采集规范。
 - 开展数据预处理和特征分析。
 - 形成实验结果和最终报告。
@@ -233,16 +306,14 @@ AI 输出不直接作为实验结论或未经验证的技术依据。
 
 ---
 
-## 11. Project Principles（项目原则）
+## 12. Project Principles（项目原则）
 
-本项目遵循以下原则：
-
-- Scientific Integrity：尊重实验事实。
-- Data Traceability：保证数据可追溯。
-- Reproducibility：重视实验可复现性。
-- Transparency：如实记录失败与改进。
-- Human Verification：人工核验 AI 辅助内容。
-- Version Control：通过 Git 提交记录管理项目变化。
+- **Scientific Integrity**：尊重实验事实。
+- **Data Traceability**：保证数据可追溯。
+- **Reproducibility**：重视实验可复现性。
+- **Transparency**：如实记录失败与改进。
+- **Human Verification**：人工核验 AI 辅助内容。
+- **Version Control**：通过 Git 提交记录管理项目变化。
 
 ---
 
