@@ -1,0 +1,3 @@
+evidence_id,recording_date,experiment_id,motion_type,related_dataset_id,recording_status,repository_path,notes
+EV-NO-VIDEO-001,,,downhill,,not_recorded,,"Downhill-walking trial; user confirmed no video was recorded."
+EV-NO-VIDEO-002,,,downstairs,,not_recorded,,"Cafeteria-stairs trial; user confirmed no video was recorded."
