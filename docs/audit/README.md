@@ -9,7 +9,8 @@
 - ANOMALY_REVIEW.md：质量检查与异常提示
 - EVIDENCE_LINKAGE_REVIEW.md：29段视频及关联限制
 - DECISION_HISTORY.md：关键决策和状态
-- analysis_inclusion_review_v1.csv：逐组建议审查表（非最终纳入名单）
+- analysis_inclusion_review_v1_1.csv：逐组审查矩阵（非最终纳入名单）
+- INVENTORY_CONSISTENCY_REPORT.md：与本地清单及GitHub main的核对结果
 
 ## 证据等级
 1. 原始文件证据：ZIP内部CSV、device/time元数据、视频和哈希。
