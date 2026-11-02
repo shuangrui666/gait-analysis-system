@@ -154,3 +154,10 @@
 - 旧名、标准名、Dataset ID 与 SHA-256 的对应关系记录在 `data/metadata/filename_rename_log.csv`；原始名和标准名也继续保存在 inventory 中。
 
 路径重命名复用了原始 Git blob SHA，因此 ZIP blob 内容未被改写；但本次未从远端重新下载文件复算 SHA-256。历史第2节的0/39结论仅代表早期检查时点，不是当前状态。其余数据质量、标签核验和正式纳入结论仍按本报告原有限制处理；本次文件名变更不代表39组数据已通过正式质量验收。
+
+
+## 后续状态更正：GAIT-C350D50D5DDB 动作标签与视频关联
+
+数据采集者明确确认 `GAIT-C350D50D5DDB` 的实际动作是上楼梯（`upstairs`），与原始文件名及 inventory 的动作标签一致。审查矩阵现记录为 `user_label_recorded_not_revalidated`，不再标记 `action_pending`。采集者确认实验视频存在，但尚未确定具体视频与本次 ZIP 的对应关系，因此视频关联仍待核验，不新增虚构的证据编号。
+
+本次只修正动作标签审核状态、说明文字和标准文件名状态；`data_status=pending_verification`、`analysis_usage=not_confirmed`、`final_inclusion_status=not_final` 均保持不变。该更新不代表完成原始 ZIP 内容复核、视频同步核验或正式纳入决定。ZIP 文件路径变更复用原有 blob SHA，未重写 ZIP 内容；本次未从远端下载并复算 SHA-256。

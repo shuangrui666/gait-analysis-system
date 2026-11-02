@@ -52,8 +52,9 @@ The dataset inventory will be updated progressively as each original file is exa
 
 The 39 ZIP entries have been matched one-to-one with the 39 rows in `data/metadata/dataset_inventory.csv`.
 
-- 38 ZIP paths were renamed to the corresponding `repository_filename` values in the inventory.
-- `GAIT-C350D50D5DDB` remains temporarily named `stairs_up_g.zip`. Its action label is marked `action_pending` in the audit matrix. In accordance with the rule in Section 3, the filename is not changed to a name that asserts an unverified movement label.
+- All 39 ZIP paths are now named according to the corresponding `repository_filename` values in the inventory.
+- `GAIT-C350D50D5DDB` is confirmed by the data collector as an upstairs trial. Its standardized filename is `GAIT-C350D50D5DDB_2026-10-29_upstairs_pocket_total.zip`.
+- An experimental video exists for this collection period, but the exact video-to-dataset correspondence has not yet been established. The review matrix therefore keeps video linkage pending; this does not undo the action-label confirmation.
 - The original filename remains in the `original_filename` field. The standardized name remains in `repository_filename`.
 - The original SHA-256 mapping is retained in `data/metadata/dataset_sha256_mapping.csv`; `representative_filename` continues to identify the source/original filename.
 - A per-dataset rename ledger is maintained at `data/metadata/filename_rename_log.csv`.
@@ -62,4 +63,4 @@ For the 38 path changes, the Git tree entries were redirected to the exact pre-e
 
 ## 8. Current Directory Status
 
-There are 39 ZIP files in this directory: 38 standardized English filenames and one deferred filename pending action-label verification. All 39 have matching inventory rows.
+There are 39 ZIP files in this directory, all using the standardized English filenames recorded in the inventory. All 39 have matching inventory rows. For `GAIT-C350D50D5DDB`, the action label is confirmed by the data collector; its exact video association remains pending.

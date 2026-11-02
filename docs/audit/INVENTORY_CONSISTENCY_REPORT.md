@@ -43,3 +43,12 @@
 本次重命名通过复用原有 Git blob SHA 完成路径变更，没有重写 ZIP 内容。此操作没有从远端重新下载 ZIP 并复算 SHA-256，因此哈希验证状态仍以既有本地 SHA-256 manifest 核验记录为依据；不得将本次路径重命名描述为重新计算了 SHA-256。
 
 本次核验修正了本报告较早的远端文件存在性描述。历史段落保留作为审计时间线，不应单独引用为当前仓库状态。
+
+
+## 后续状态更正：GAIT-C350D50D5DDB 动作标签确认
+
+经数据采集者明确确认，`GAIT-C350D50D5DDB` 对应的实际采集动作是上楼梯（`upstairs`）。该确认与原始文件名“上楼梯含加速度G..zip”及登记表中的 `motion_type=upstairs` 一致。审查矩阵的 `action_label_review_status` 已由 `action_pending` 更新为 `user_label_recorded_not_revalidated`，表示采集者已确认动作类别，但尚未完成视频与该数据文件的精确关联。
+
+采集者说明实验视频确实存在；当前阻塞项是尚未确定哪段视频对应本次数据采集，而不是没有视频。故 `video_linkage_status` 保持 `candidate_pool_only_no_sync`，不虚构视频编号或时间同步关系。
+
+数据登记表保留 `data_status=pending_verification` 和 `analysis_usage=not_confirmed`，因为本次仅解决动作类别记录冲突，不代表该数据集已完成全部质量验收或获准正式分析。标准文件名已按登记表中的 `repository_filename` 应用。ZIP 使用原有 Git blob SHA 进行路径变更，未改写 ZIP 内容；本次未重新下载并复算 SHA-256。
