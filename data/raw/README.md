@@ -47,3 +47,19 @@ Before a dataset is used for formal analysis, verify:
 Original datasets have not yet been fully inventoried and verified.
 
 The dataset inventory will be updated progressively as each original file is examined.
+
+## 7. Standardized Repository Filenames (2026-11-02)
+
+The 39 ZIP entries have been matched one-to-one with the 39 rows in `data/metadata/dataset_inventory.csv`.
+
+- 38 ZIP paths were renamed to the corresponding `repository_filename` values in the inventory.
+- `GAIT-C350D50D5DDB` remains temporarily named `stairs_up_g.zip`. Its action label is marked `action_pending` in the audit matrix. In accordance with the rule in Section 3, the filename is not changed to a name that asserts an unverified movement label.
+- The original filename remains in the `original_filename` field. The standardized name remains in `repository_filename`.
+- The original SHA-256 mapping is retained in `data/metadata/dataset_sha256_mapping.csv`; `representative_filename` continues to identify the source/original filename.
+- A per-dataset rename ledger is maintained at `data/metadata/filename_rename_log.csv`.
+
+For the 38 path changes, the Git tree entries were redirected to the exact pre-existing blob SHAs. This preserves the stored ZIP blob content; no ZIP was extracted, recompressed, or rewritten. The SHA-256 values in the mapping table were not recalculated from a remote ZIP download during this operation.
+
+## 8. Current Directory Status
+
+There are 39 ZIP files in this directory: 38 standardized English filenames and one deferred filename pending action-label verification. All 39 have matching inventory rows.
