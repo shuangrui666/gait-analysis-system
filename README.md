@@ -1,103 +1,323 @@
-# Gait Analysis System｜课题08
+# Gait Analysis System
 
 **多姿态步态加速度特征采集与对比**
 
-本仓库用于整理 Phyphox 手机加速度实验的原始数据登记、实验过程、证据索引、数据质量审查和后续分析代码。当前处于**历史数据整理与规范化阶段**；登记为候选的数据不等于已通过最终质量验收。
+A reproducible experimental project for gait acceleration data collection, signal processing, feature extraction, and motion pattern comparison.
 
-## 当前仓库结构（以 main 分支实际文件为准）
+---
 
-```text
-.
-├── data/
-│   ├── metadata/
-│   │   ├── data_dictionary.md
-│   │   ├── dataset_inventory.csv
-│   │   ├── dataset_review_flags.csv
-│   │   ├── dataset_sha256_mapping.csv
-│   │   └── evidence_index.csv
-│   └── raw/
-│       └── README.md
-├── docs/
-│   └── audit/
-│       ├── README.md
-│       ├── AUDIT_LOG.md
-│       ├── DATA_INCLUSION_REVIEW.md
-│       ├── DATA_LABEL_CORRECTIONS.md
-│       ├── ANOMALY_REVIEW.md
-│       ├── EVIDENCE_LINKAGE_REVIEW.md
-│       ├── DECISION_HISTORY.md
-│       ├── INVENTORY_CONSISTENCY_REPORT.md
-│       └── analysis_inclusion_review_v1_1.csv
-├── evidence/
-│   ├── README.md
-│   ├── evidence_index.csv
-│   ├── video_evidence_manifest.csv
-│   └── videos/
-│       └── .gitkeep
-└── experiment/
-    ├── experiment_log.md
-    ├── protocol_changes.md
-    ├── trial_history.md
-    └── troubleshooting.md
+## 1. Project Overview（项目概述）
+
+### 1.1 项目背景
+
+本项目以智能手机内置加速度传感器为数据采集工具，使用 Phyphox 记录人体在不同运动状态下的加速度信号。
+
+通过对采集数据进行整理、质量检查、预处理、特征提取和可视化，探索不同运动状态下加速度信号的变化规律及其特征差异。
+
+项目不仅关注最终的数据分析结果，也重视实验过程的真实性、数据管理的规范性以及实验结果的可追溯性。
+
+### 1.2 研究目标
+
+- 采集不同运动状态下的加速度数据。
+- 建立规范、可追溯的实验数据管理流程。
+- 检查不同采集条件对数据质量的影响。
+- 分析不同运动状态下的加速度信号特征。
+- 提取具有分析价值的时域和频域特征。
+- 探索不同运动状态的特征对比与区分方法。
+
+### 1.3 研究问题
+
+1. 不同运动状态下的加速度信号具有哪些变化特征？
+2. 手机放置位置和姿态是否会影响采集结果？
+3. 包含重力加速度的数据与去除重力影响的数据有什么区别？
+4. 哪些时域和频域特征有助于区分不同运动状态？
+5. 如何通过规范的数据采集与处理提高实验结果的可靠性？
+
+---
+
+## 2. Experimental Categories（实验类别）
+
+计划研究的运动状态包括：
+
+| 类别 | 英文名称 | 实验说明 |
+|---|---|---|
+| 静止 | Static | 人体保持静止 |
+| 平地正常行走 | Normal Walking | 平地正常速度行走 |
+| 快跑 | Running | 按实验方案规定的速度跑步 |
+| 上楼梯 | Stair Ascent | 沿楼梯向上行走 |
+| 下楼梯 | Stair Descent | 沿楼梯向下行走 |
+
+注：以上为计划研究的类别。实际数据是否齐全、是否符合正式实验条件，以数据登记表和实验记录为准。其他探索性动作数据应单独标注，不直接与上述类别混淆。
+
+---
+
+## 3. Experimental Tools（实验工具）
+
+### 3.1 数据采集与分析工具
+
+- **Android Smartphone**：加速度数据采集设备。
+- **Phyphox**：传感器数据采集软件。
+- **Python**：数据处理、特征提取和可视化。
+- **GitHub**：项目版本管理、实验文档和数据归档。
+
+### 3.2 AI-assisted Tools（AI辅助工具）
+
+本项目使用以下 AI 工具辅助实验与工程实践：
+
+- ChatGPT
+- DeepSeek
+- Qwen
+- WorkBuddy
+
+AI 工具主要用于实验方案讨论、技术问题排查、资料整理、代码辅助和文档编写。
+
+AI 生成的内容均需要人工核查。实验事实、数据结果和最终结论以实际实验及验证结果为准。
+
+相关使用记录见 `ai_collaboration/`。
+
+---
+
+## 4. Experimental Workflow（实验工作流程）
+
+本项目采用以下工作流程：
+
+1. Requirements Analysis：任务要求分析
+2. Experimental Design：实验方案设计
+3. Data Collection：实验数据采集
+4. Data Quality Assessment：数据质量检查
+5. Data Preprocessing：数据预处理
+6. Feature Extraction：特征提取
+7. Data Visualization：数据可视化
+8. Comparative Analysis：特征对比分析
+9. Result Evaluation：结果评估
+10. Final Report：实验报告整理
+
+---
+
+## 5. Experimental Iteration（实验迭代）
+
+本项目保留从初步探索到实验方案改进的过程，记录实验中发现的问题、调整措施和后续验证情况。
+
+### 5.1 实验迭代流程
+
+```mermaid
+flowchart TD
+    A["初步手持采集"] --> B["发现手机放置方式不一致"]
+    B --> C["尝试裤袋采集"]
+    C --> D["发现传感器类型不一致"]
+    D --> E["进一步统一采集条件"]
+    E --> F["正式数据采集与分析"]
+
+    style A fill:#e8f1ff,stroke:#4776a8
+    style B fill:#fff3df,stroke:#c28b36
+    style C fill:#e8f1ff,stroke:#4776a8
+    style D fill:#fff3df,stroke:#c28b36
+    style E fill:#e5f4e8,stroke:#4c956c
+    style F fill:#e5f4e8,stroke:#4c956c
 ```
 
-## 数据登记与追溯
+注：该图展示实验迭代的整体思路，不代表所有阶段均已完成。具体实验时间、数据和方案调整情况以实验日志及原始数据记录为准。
 
-| 文件 | 用途 |
+### 5.2 实验过程记录
+
+实验过程中重点记录：
+
+- 不同实验轮次的采集方式。
+- 手机放置位置和姿态的调整。
+- 传感器类型和采集参数的变化。
+- 实验过程中发现的问题。
+- 实验方案的修改原因。
+- 数据筛选和排除的依据。
+- 补测前后的实验条件与数据变化。
+
+早期数据不会因为不符合后续实验规范而被随意删除，而是保留原始文件和实验背景，并根据采集条件分类管理。
+
+详细记录见 `experiment/`。
+
+---
+
+## 6. Data Management（数据管理）
+
+项目采用分层数据管理方式：
+
+| 数据目录 | 内容 |
 |---|---|
-| [数据集总清单](data/metadata/dataset_inventory.csv) | 原始文件名、仓库命名、动作、放置方式、传感器类型、采样率、时长和状态 |
-| [数据审查标记](data/metadata/dataset_review_flags.csv) | 数据质量与复核提示；标记不自动等于排除 |
-| [SHA-256映射](data/metadata/dataset_sha256_mapping.csv) | 原始数据文件哈希与重复文件溯源 |
-| [数据字典](data/metadata/data_dictionary.md) | 字段定义与数据术语 |
-| [元数据证据索引](data/metadata/evidence_index.csv) | 数据与证据关联线索 |
-| [原始数据目录说明](data/raw/README.md) | 原始数据存放和管理约定 |
+| `data/raw/` | 原始采集数据 |
+| `data/interim/` | 中间处理数据 |
+| `data/processed/` | 经过规范处理的数据 |
+| `data/selected/` | 正式分析选用的数据 |
+| `data/metadata/` | 数据登记表、采集条件及元数据 |
 
-**重要：** inventory 中的 `candidate`、`exploratory` 或 `pending_verification` 是当前管理状态，不代表最终纳入结论。正式分析前必须结合原始 ZIP 内部记录、采集条件和质量检查再次确认。Total（含重力）与 Linear（去重力）数据应分别处理；不同手机放置方式也不应未经评估直接混合。
+### 6.1 数据管理原则
 
-## 实验过程与证据
+1. 原始数据尽可能保持不变。
+2. 保留原始文件名和数据来源。
+3. 不同动作、手机放置方式和传感器类型分别标注。
+4. 处理后的数据应能追溯到原始文件。
+5. 正式分析数据应有明确的筛选依据。
+6. 异常数据和未采用数据应记录原因。
+7. 不将不同采集条件的数据未经评估直接混合分析。
+
+### 6.2 数据追溯
+
+每份正式分析数据尽可能关联：
+
+- 原始数据文件。
+- 实验编号。
+- 实验采集条件。
+- 对应实验日志。
+- 对应视频证据（如果有）。
+- 数据处理方法及处理结果。
+
+---
+
+## 7. Experimental Evidence（实验过程证据）
+
+为提高实验过程的真实性、透明度和可追溯性，本项目对部分实验操作进行视频记录，并将视频作为实验过程的辅助证据进行归档。
+
+### 7.1 视频记录内容
+
+视频记录可能包括：
+
+- Phyphox 传感器实验的设置过程。
+- 手机放置方式及实验设备状态。
+- 静止、正常行走、快跑和上下楼梯等动作的实际采集过程。
+- 实验操作过程中出现的问题及调整过程。
+- 后续补测和实验方案改进过程。
+
+### 7.2 视频与数据的对应关系
+
+为了方便核查，每段视频尽可能关联对应的实验编号和原始数据文件。
+
+视频档案登记信息包括：
+
+| 字段 | 说明 |
+|---|---|
+| Video ID | 视频编号 |
+| Recording Date | 录制日期 |
+| Experiment ID | 对应实验编号 |
+| Motion Type | 运动类别 |
+| Related Data | 对应原始数据文件 |
+| Description | 视频内容说明 |
+
+### 7.3 证据管理原则
+
+1. 保留原始视频，不随意剪辑或覆盖。
+2. 如需剪辑用于展示，应同时保留原始视频。
+3. 视频记录与实验日志、原始数据建立对应关系。
+4. 不使用摆拍或后期制作的视频冒充真实实验记录。
+5. 对无法确认的视频时间、实验条件和数据对应关系，如实标注待核实。
+
+视频档案目录：`evidence/videos/`
+
+视频文件较大时，可使用 Git LFS 或其他可访问的存储方式，并在仓库中保留视频索引和访问说明。
+
+---
+
+## 8. AI Collaboration Records（AI协作记录）
+
+为保证 AI 辅助过程透明、可追溯，本项目单独保存 AI 协作档案。
+
+记录内容包括：
+
+- AI 工具名称及可获取的模型版本。
+- 对话日期和任务目的。
+- 用户提示词及 AI 回复。
+- AI 输出的使用情况。
+- 人工核验与修改过程。
+- 最终方案是否采纳及其原因。
+
+完整档案见 `ai_collaboration/`。
+
+AI 输出不直接作为实验结论或未经验证的技术依据。所有关键实验决策和最终分析结果均需要结合实际数据进行人工核查。
+
+---
+
+## 9. Project Documentation（项目文档）
+
+### 9.1 项目设计
+
+- [项目概述](docs/project_overview.md)
+- [任务要求](docs/requirements.md)
+- [实验设计](docs/experimental_design.md)
+- [数据采集规范](docs/data_collection_protocol.md)
+- [数据字典](docs/data_dictionary.md)
+- [数据质量标准](docs/data_quality_criteria.md)
+
+### 9.2 实验过程
 
 - [实验日志](experiment/experiment_log.md)
-- [实验试验与迭代历史](experiment/trial_history.md)
-- [方案变更记录](experiment/protocol_changes.md)
-- [问题排查记录](experiment/troubleshooting.md)
-- [证据目录说明](evidence/README.md)
-- [视频证据清单（29条记录）](evidence/video_evidence_manifest.csv)
-- [证据索引](evidence/evidence_index.csv)
+- [实验迭代历史](experiment/trial_history.md)
+- [问题与解决记录](experiment/troubleshooting.md)
+- [实验方案变更记录](experiment/protocol_changes.md)
+- [关键决策记录](experiment/decision_log.md)
 
-视频清单是元数据索引，不代表视频二进制文件已经提交到 GitHub。当前 `evidence/videos/` 仅保留目录占位文件；如需提交视频，应另行核对文件大小、隐私和 Git LFS 方案。视频与数据无法可靠一一对应时，保持未确认状态，不按文件名或排序臆测配对。
+### 9.3 实验过程证据
 
-## 数据审计
+- [证据档案说明](evidence/README.md)
+- [证据索引表](evidence/evidence_index.csv)
 
-审计材料现已纳入 main：
+### 9.4 AI协作
 
-- [审计档案入口](docs/audit/README.md)
-- [审计日志](docs/audit/AUDIT_LOG.md)
-- [数据纳入审查](docs/audit/DATA_INCLUSION_REVIEW.md)
-- [标签修正记录](docs/audit/DATA_LABEL_CORRECTIONS.md)
-- [异常复核](docs/audit/ANOMALY_REVIEW.md)
-- [视频与数据关联审查](docs/audit/EVIDENCE_LINKAGE_REVIEW.md)
-- [决策历史](docs/audit/DECISION_HISTORY.md)
-- [清单一致性报告](docs/audit/INVENTORY_CONSISTENCY_REPORT.md)
-- [纳入审查矩阵 v1.1](docs/audit/analysis_inclusion_review_v1_1.csv)
+- [AI协作档案](ai_collaboration/README.md)
+- [AI工具登记表](ai_collaboration/ai_tools_registry.md)
 
-审查矩阵中的最终纳入状态仍为未定（`not_final`）；不得把候选数据描述为已通过最终验收。
+### 9.5 数据与分析
 
-## AI辅助工具与学术诚信
+- [数据登记表](data/metadata/dataset_inventory.csv)
+- [最终实验报告](docs/final_report.md)
 
-项目过程中使用过 ChatGPT、DeepSeek、Qwen、WorkBuddy 辅助讨论、排查、整理和文档编写。AI 输出应由人工结合原始数据核验；未保存的对话原文不应补写成虚构的逐字记录。实验事实与结论以原始数据和可复核过程为准。
+注：上述链接需要在对应文件创建后才能正常访问。
 
-## 当前状态与下一步
+---
 
-1. 继续核对39组数据的原始 ZIP 与哈希映射。
-2. 复核动作、手机放置方式、Total/Linear、采样率和时长。
-3. 根据统一标准完成数据质量检查，明确最终纳入/排除理由。
-4. 在条件统一后补充正式采集数据。
-5. 再开展预处理、时域/频域特征提取和动作对比。
+## 10. Reproducibility and Quality Control（可复现性与质量控制）
 
-## 项目原则
+为了提高实验过程的可追溯性和分析结果的可靠性，本项目逐步建立以下规范：
 
-- 保留原始数据和历史试验记录。
-- 不将探索性数据伪装成正式数据。
-- 不根据猜测填补实验事实。
-- 任何修订都应保留版本历史和可追溯依据。
-- 区分 AI 建议、人工判断和数据证据。
+- 记录实验设备和软件环境。
+- 记录采集条件和实验操作。
+- 保留原始数据及其元数据。
+- 记录数据清洗和特征提取步骤。
+- 对分析代码进行必要的测试。
+- 保留实验方案变更和重要决策记录。
+- 区分探索性分析与正式分析。
+- 将实验视频、原始数据和实验日志建立对应关系。
+
+项目最终分析应尽可能能够从原始数据、处理代码和实验记录中复现。
+
+---
+
+## 11. Project Status（项目状态）
+
+**当前阶段：实验历史整理与数据规范化。**
+
+后续计划：
+
+- 完善历史实验记录。
+- 整理所有原始数据。
+- 核实各数据文件的采集条件。
+- 整理实验视频及对应的数据证据。
+- 统一正式实验采集规范。
+- 开展数据预处理和特征分析。
+- 形成实验结果和最终报告。
+
+项目状态将根据实际进展持续更新。
+
+---
+
+## 12. Project Principles（项目原则）
+
+- **Scientific Integrity**：尊重实验事实。
+- **Data Traceability**：保证数据可追溯。
+- **Reproducibility**：重视实验可复现性。
+- **Transparency**：如实记录失败与改进。
+- **Human Verification**：人工核验 AI 辅助内容。
+- **Version Control**：通过 Git 提交记录管理项目变化。
+
+---
+
+**Project Name:** Gait Analysis System  
+**Course Topic:** 课题08  
+**Project Type:** Experimental Data Collection and Analysis  
+**Status:** In Progress
