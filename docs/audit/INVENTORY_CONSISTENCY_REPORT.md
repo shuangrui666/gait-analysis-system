@@ -29,3 +29,17 @@
 
 ## 复核结论
 本分支的39组审查矩阵与本地inventory通过ID和关键分类字段一致性检查。GitHub main仍缺少完整清单和相关索引，不能视为完整数据归档。
+
+## 追加核验：2026-11-02（文件名规范化后）
+
+本报告原“GitHub main 分支核对”段落记录的是较早一次仓库状态，不能代表本次复核后的当前状态。2026-11-02 后续重新读取 main 的完整 Git tree 后，确认：
+
+- `data/raw/` 中有39个 ZIP 文件，与 `dataset_inventory.csv` 的39条记录逐条对应；
+- `dataset_inventory.csv`、`dataset_sha256_mapping.csv`、`dataset_review_flags.csv` 均存在；
+- 已将38个 ZIP 路径改为登记表中的 `repository_filename`；
+- `GAIT-C350D50D5DDB` 暂保留 `stairs_up_g.zip`，因为审查矩阵的动作标签状态为 `action_pending`，符合 raw README 的“不确定时不猜测”规则；
+- 原始文件名仍在 inventory 的 `original_filename`，标准名在 `repository_filename`，哈希来源记录在 `dataset_sha256_mapping.csv`，另有 `filename_rename_log.csv` 记录旧名、新名与 SHA-256 的映射。
+
+本次重命名通过复用原有 Git blob SHA 完成路径变更，没有重写 ZIP 内容。此操作没有从远端重新下载 ZIP 并复算 SHA-256，因此哈希验证状态仍以既有本地 SHA-256 manifest 核验记录为依据；不得将本次路径重命名描述为重新计算了 SHA-256。
+
+本次核验修正了本报告较早的远端文件存在性描述。历史段落保留作为审计时间线，不应单独引用为当前仓库状态。
