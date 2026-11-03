@@ -1,0 +1,12 @@
+dataset_id,placement,sensor_type,sampling_rate_hz,issues_found,issue_time_s,candidate_interval_s,raw_csv_verified,video_linkage_status,current_status,next_action
+GAIT-1A988B796ED4,handheld,total,500,"前后非稳定段；实际步速未量化","0-1.5;15.5-end","1.5-15.5",no,"group_candidate_unlinked","pending_verification","重开原始ZIP/CSV并核验极值与时间戳；寻找唯一视频映射"
+GAIT-642C922009F2,handheld,total,500,"起止姿态变化；极端值比例偏高；约23秒峰值待定位","0-3.5;~23;24.5-end","3.5-24.5 (峰值复核前不可直接纳入)",no,"group_candidate_unlinked","pending_verification","原始CSV定位23秒附近峰值，检查三轴、模长、相邻点和周期连续性"
+GAIT-2FA81A7DC0BB,pocket,total,500,"开始放入与结束取出手机的过渡风险","0-1.5;19.5-end","1.5-19.5",no,"group_candidate_unlinked","pending_verification","重开CSV并核验首尾过渡；查找同步证据"
+GAIT-387D48DED7C0,pocket,linear,100,"Linear与Total异质；边界待复核","0-1;21-end","1-21",no,"group_candidate_unlinked","pending_verification","独立核验Linear列名、时间戳和采样率，单独分析"
+GAIT-4C170BA77C6C,pocket,total,500,"开始录制后放入口袋；起始附近过渡尖峰","0-0.8;end boundary unknown","0.8-15.5",no,"group_candidate_unlinked","pending_verification","放大原始CSV起始段，定位尖峰影响范围"
+GAIT-4F5177C0E51D,pocket,total,500,"放入/取出过渡；末端动态减弱","start boundary;~31-end","3.5-31.0 signal candidate",yes,"group_candidate_unlinked","pending_verification","检查原始CSV首尾及31秒后波形，确认是否能保留更早有效段"
+GAIT-4A7E3EAEC369,pocket,total,500,"开始放入/结束取出过渡","0-1.5;23.5-end","1.5-23.5",no,"group_candidate_unlinked","pending_verification","重开CSV核验首尾过渡和极值"
+GAIT-E084D341D878,pocket,total,500,"开头姿态调整；结束边界待核","0-3;30.5-end","3-30.5",no,"group_candidate_unlinked","pending_verification","重开CSV检查起始3秒与末端"
+GAIT-A8B03FC23EA3,pocket,total,500,"中段动态RMS下降；末端姿态/动态变化","9.5-11.5;20-end","3.5-9.5 and 11.5-20.0 (separate candidates)",yes,"group_candidate_unlinked","pending_verification","核实低动态段原因；不把两个候选段拼接为连续步行"
+GAIT-5C02C71A19EB,pocket,total,500,"起止放入/取出过渡风险","0-1.5;22-end","1.5-22",no,"group_candidate_unlinked","pending_verification","重开CSV检查时间戳、三轴、极值及首尾"
+GAIT-06C3EF47B18A,handheld_pose_change,total,500,"约10秒附近手机姿势变化；不适合固定姿态主对照","~10;before/after posture transition","10.5-21 (post-change signal candidate)",no,"group_candidate_unlinked","pending_verification","核对姿势变化前后轴向/重力方向变化，决定是否可分段探索"
