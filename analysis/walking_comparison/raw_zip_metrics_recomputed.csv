@@ -1,3 +1,3 @@
-dataset_id,rows,duration_s,median_dt_s,magnitude_mean_m_s2,magnitude_sd_m_s2,magnitude_min_m_s2,magnitude_max_m_s2,rolling_sd_1s_median,rolling_sd_1s_p95
+dataset_id,rows,duration_s,median_dt_s,magnitude_mean_m_s2,magnitude_sd_m_s2,magnitude_min_m_s2,magnitude_max_m_s2,rolling_sd_median_m_s2,rolling_sd_p95_m_s2
 GAIT-A8B03FC23EA3,11736,23.470,0.002,10.326885,2.822573,2.363945,25.233138,2.743360,3.845803
 GAIT-4F5177C0E51D,17283,34.564,0.002,10.959121,3.979638,1.695912,30.941148,4.062720,4.947534
