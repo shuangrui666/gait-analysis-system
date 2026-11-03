@@ -57,7 +57,7 @@
 - 建议后续分析通过原始文件 SHA256 定位来源，并按 `Time (s) >= 3.0` 截取稳定片段。
 - 截取片段保留原始五列，不做平滑、滤波或重采样。
 - 若后续发现实验视频或操作日志能确定开头扰动的真实原因，应补充证据并更新本报告；在此之前不对原因作确定性归因。
-- 本次复核统计指标已提交为同目录的 `static_pocket_signal_review_metrics.csv`。三轴对比图已在本地分析过程中生成并用于复核，但本次未将图像文件或截取后的派生 CSV 上传；后续如需在仓库中复现，可依据本报告的时间截取规则从原始 ZIP 生成。
+- 本次复核统计指标已提交为同目录的 `static_pocket_signal_review_metrics.csv`。三组裤袋静止数据的三轴时域对比图已归档为 [`static_pocket_three_dataset_review.svg`](./static_pocket_three_dataset_review.svg)，可直接查看各组 X、Y、Z 轴波形。图中展示原始时间序列及裤袋③开头约 3 秒的短时波动与后续相对稳定区间。
 
 ## 7. 限制
 
