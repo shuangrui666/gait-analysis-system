@@ -1,0 +1,5 @@
+condition,dataset_id,placement,sensor_type,approx_sampling_rate_hz,duration_s,analysis_segment,acceleration_magnitude_mean_m_s2,acceleration_magnitude_std_m_s2,acceleration_magnitude_peak_to_peak_m_s2,acceleration_magnitude_rms_m_s2
+Desktop static,GAIT-63AE50EDA701,Desk,Total acceleration including gravity,500,20.718,Middle 80%,9.8387,0.0091,0.1820,9.8387
+Pocket static 1,GAIT-0904195532AE,Left trouser pocket,Total acceleration including gravity,500,23.054,Middle 80%,9.7440,0.0313,0.4652,9.7441
+Pocket static 2,GAIT-8E1FDD066074,Left trouser pocket,Total acceleration including gravity,500,21.114,Middle 80%,9.7310,0.0295,0.2184,9.7310
+Pocket static 3,GAIT-2DB4E6C4072D,Left trouser pocket,Total acceleration including gravity,500,22.408,Middle 80%,9.8807,0.0303,0.4522,9.8807
