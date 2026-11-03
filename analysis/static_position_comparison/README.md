@@ -44,7 +44,7 @@ a=\sqrt{a_x^2+a_y^2+a_z^2}
 
 ## 5. 可视化结果
 
-![四组静止数据的加速度模长标准差对比](figures/acceleration_magnitude_std_comparison.png)
+![四组静止数据的加速度模长标准差对比](figures/acceleration_magnitude_std_comparison.svg)
 
 图中比较四组数据的加速度模长标准差，单位为 m/s²。图表应与本目录中的 CSV 统计表配套阅读。
 
