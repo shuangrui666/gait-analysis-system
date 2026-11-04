@@ -1,0 +1,8 @@
+evidence_id,video_filename,duration_s,visual_activity,visual_placement,group_level_candidate,related_dataset_id,linkage_status,reason
+EV-001,1036232062.mp4,32.233333,walking,left_trouser_pocket,walking_pocket_group,,unlinked_pending_verification,"No recording date, experiment ID, or shared time anchor"
+EV-011,2130554508.mp4,38.433333,walking,left_trouser_pocket,walking_pocket_group,,unlinked_pending_verification,"No recording date, experiment ID, or shared time anchor"
+EV-012,245385489.mp4,22.266667,walking,handheld,walking_handheld_group,,unlinked_pending_verification,"Handheld walking visible; stairwell/landing context; no shared time anchor"
+EV-014,411962750.mp4,35.266667,walking,left_trouser_pocket,walking_pocket_group,,unlinked_pending_verification,"No recording date, experiment ID, or shared time anchor"
+EV-015,412917757.mp4,35.266667,walking,left_trouser_pocket,walking_pocket_group,,unlinked_pending_verification,"No recording date, experiment ID, or shared time anchor"
+EV-024,1391686904.mp4,32.033333,walking,handheld,walking_handheld_group,,unlinked_pending_verification,"Handheld walking visible; indoor aisle/bookshelf context; no shared time anchor"
+EV-029,2123841312.mp4,23.105271,walking,handheld,walking_handheld_group,,unlinked_pending_verification,"Handheld walking visible; indoor aisle/bookshelf context; no shared time anchor"
