@@ -1,5 +1,9 @@
 # Reproducible analysis guide
 
+## Input data location
+
+The scripts expect the 39 uniquely identified original ZIP archives in `data/raw/`, with filenames matching `repository_filename` in `data/metadata/dataset_inventory.csv`. The SHA-256 lookup is read from `data/metadata/dataset_sha256_mapping.csv`. The current GitHub repository tree contains 39 ZIP files in `data/raw/`.
+
 ## Environment
 
 Recommended: Python 3.10 or newer. The analysis uses NumPy, pandas and Matplotlib.
@@ -30,17 +34,26 @@ If PowerShell blocks activation, run the script with the virtual-environment int
 5. Calculates full-record magnitude statistics and timestamp quality indicators.
 6. Writes generated outputs under `analysis/generated/`; optional overview plots are separated by sensor type.
 
-Default scope is walking and static records:
+Default scope of `analyze_phyphox_archives.py` is walking and static records:
 
 ```powershell
 python scripts/analyze_phyphox_archives.py
 ```
 
-To analyze all motion types:
+To analyze all motion types with the baseline pipeline:
 
 ```powershell
 python scripts/analyze_phyphox_archives.py --motion walking,static,running,upstairs,downstairs,mixed_stairs,downhill
 ```
+
+The dedicated running/stairs analyses are separate scripts and produce their own tables and figures:
+
+```powershell
+python scripts/analyze_running_stairs.py
+python scripts/analyze_action_deep_audit.py
+```
+
+These dedicated scripts require the original ZIPs in `data/raw/`; they write into `analysis/running_stairs/` and `analysis/action_deep_audit/` respectively. Review their reports for sensor/placement stratification and interpretation limits.
 
 To skip plots:
 
