@@ -35,6 +35,6 @@ evidence/
 - `repository_path`: repository-relative path to the actual video; blank when no repository file exists.
 - `notes`: factual notes about the evidence or its limitations.
 
-## Known evidence gaps
+## Current archive status\n\nThe manifest records 29 video files, while the repository `videos/` directory currently contains only 3 MP4 files. A manifest row is not proof that a video is present in this repository. The source collection also contains recordings from other coursework; the collector has explicitly excluded 7 recordings from Topic 08. Do not upload unrelated coursework recordings merely to make the manifest count match. First identify the Topic 08 originals, preserve their original bytes, and record SHA-256 values. If the full set is too large for ordinary Git, use Git LFS or a documented external archive with checksums and access instructions.\n\n## Known evidence gaps
 
 The downhill-walking recording and the cafeteria-stairs recording were not video-recorded. They must remain explicitly marked as `not_recorded` in the index. This is a documentation of the evidence gap, not a claim that video files exist.
