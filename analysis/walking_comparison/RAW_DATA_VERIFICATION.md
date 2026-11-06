@@ -1,6 +1,10 @@
 # Walking Group — Raw Data Verification
 
-**Status:** partial raw-archive verification. This does not mean all 11 walking datasets were opened at CSV level.
+> **历史记录 / 已被第二轮复核更新（2026-11-06）**：本文记录的是第一轮检查结果。当时只有 `GAIT-A8B03FC23EA3` 和 `GAIT-4F5177C0E51D` 两组原始ZIP能够在该轮材料中完成CSV级复核；“其余9组未核验”仅描述第一轮当时的证据范围，**不是当前状态**。第二轮已恢复并逐组读取11/11组原始ZIP及CSV，SHA-256均与登记清单匹配。当前应以[第二轮原始CSV复核报告](WALKING_RAW_DATA_VERIFICATION_ROUND2.md)为准。11组最终纳入状态仍全部为 `pending_verification`，第二轮基础质量核验不等于最终纳入确认。
+
+---
+
+**Historical status at the time of round 1:** partial raw-archive verification. See the superseding round-2 report linked above for the current 11/11 raw CSV verification status.
 
 ## Scope and method
 
