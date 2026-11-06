@@ -256,6 +256,8 @@ AI 输出不直接作为实验结论或未经验证的技术依据。所有关�
 
 - [证据档案说明](evidence/README.md)
 - [证据索引表](evidence/evidence_index.csv)
+- [29段原始实验视频 SHA-256 清单](evidence/videos/video_manifest.csv)
+- [视频证据归档说明](evidence/videos/README.md)
 
 ### 9.4 AI协作
 
