@@ -266,6 +266,8 @@ AI 输出不直接作为实验结论或未经验证的技术依据。所有关�
 
 - [数据登记表](data/metadata/dataset_inventory.csv)
 - [最终实验报告](docs/final_report.md)
+- [11组走路数据分析角色分类表](analysis/walking_comparison/walking_final_role_classification.csv)
+- [走路组最终审核说明](analysis/walking_comparison/DATA_INCLUSION_REVIEW.md)
 
 注：上述链接需要在对应文件创建后才能正常访问。
 
