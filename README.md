@@ -316,6 +316,11 @@ python scripts/analyze_phyphox_archives.py
 - [分层比较汇总](analysis/running_stairs/running_upstairs_downstairs_stratified_summary.csv)
 - [逐组分析角色与证据状态](analysis/running_stairs/ACTION_DATASET_REVIEW.csv)
 - [复现脚本](scripts/analyze_running_stairs.py)
+- [快跑/楼梯组深度审计报告（采样质量、三轴统计）](analysis/action_deep_audit/ACTION_DEEP_AUDIT_REPORT.md)
+- [17组逐组质量与模长指标](analysis/action_deep_audit/action_dataset_quality_and_magnitude.csv)
+- [17组三轴统计](analysis/action_deep_audit/action_three_axis_statistics.csv)
+- [动作分层模长汇总](analysis/action_deep_audit/action_stratified_magnitude_summary.csv)
+- [深度审计复现脚本](scripts/analyze_action_deep_audit.py)
 
 ## 11. Project Status（项目状态）
 
