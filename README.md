@@ -311,6 +311,23 @@ python scripts/analyze_phyphox_archives.py
 
 ---
 
+## 10.4 静止与走路组图表
+
+### 静止组
+- [模长标准差对比图](analysis/static_position_comparison/figures/acceleration_magnitude_std_comparison.svg)
+- [X轴时域对比图](analysis/static_position_comparison/figures/x_axis_comparison.svg)
+- [Y轴时域对比图](analysis/static_position_comparison/figures/y_axis_comparison.svg)
+- [Z轴时域对比图](analysis/static_position_comparison/figures/z_axis_comparison.svg)
+- [裤袋静止三组复核图（PNG）](analysis/static_position_comparison/figures/static_pocket_three_dataset_review.png)
+
+### 走路组
+- [11组波形总览图](analysis/walking_comparison/walking_waveforms_contact.png)
+- [GAIT-A8B03FC23EA3特征分析图](analysis/walking_comparison/GAIT-A8B03FC23EA3_feature_analysis.png)
+- [GAIT-4F5177C0E51D特征分析图](analysis/walking_comparison/GAIT-4F5177C0E51D_feature_analysis.jpg)
+- [走路组阶段性特征分析报告](analysis/walking_comparison/WALKING_FEATURE_ANALYSIS.md)
+
+注：走路组11条记录均保留 `pending_verification`；目前只有上述两组完成原始CSV全记录特征复算，其他记录的波形审核不等于全部完成统一定量分析。
+
 ## 10.5 快跑与楼梯组分析
 
 - [快跑、上楼、下楼分析报告](analysis/running_stairs/ACTION_ANALYSIS_REPORT.md)
