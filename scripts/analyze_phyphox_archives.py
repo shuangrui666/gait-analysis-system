@@ -54,9 +54,12 @@ def read_zip(path):
         return None
 
     def choose_axis(axis):
+        # Match an axis token in common Phyphox labels such as
+        # "Acceleration x (m/s^2)" and "Linear Acceleration x".
+        pattern = re.compile(r"(?<![a-z])" + re.escape(axis) + r"(?![a-z])", re.I)
         for c in cols:
-            n = normalized(c)
-            if n.endswith(axis) and ("acceleration" in n or n in (axis, "linear" + axis)):
+            label = str(c).lower()
+            if pattern.search(label) and ("acceleration" in label or label.strip() == axis):
                 return c
         return None
 
