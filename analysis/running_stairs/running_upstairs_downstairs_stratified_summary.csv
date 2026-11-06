@@ -1,0 +1,7 @@
+motion_type,phone_placement,sensor_type,expected_rate_hz,dataset_count,mean_duration_s,mean_dynamic_rms_m_s2,sd_dynamic_rms_m_s2,mean_dynamic_p95_m_s2
+downstairs,pocket,linear,100,1,23.820,4.707,,9.244
+downstairs,pocket,total,500,5,23.330,5.854,0.498,11.756
+running,handheld,total,500,2,9.349,22.734,1.008,42.717
+running,pocket,linear,100,1,10.610,15.619,,28.245
+running,pocket,total,500,4,17.073,12.392,1.186,23.009
+upstairs,pocket,total,500,4,22.252,4.791,0.365,8.731
