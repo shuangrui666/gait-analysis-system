@@ -321,6 +321,8 @@ python scripts/analyze_phyphox_archives.py
 - [17组三轴统计](analysis/action_deep_audit/action_three_axis_statistics.csv)
 - [动作分层模长汇总](analysis/action_deep_audit/action_stratified_magnitude_summary.csv)
 - [深度审计复现脚本](scripts/analyze_action_deep_audit.py)
+- [快跑、上楼、下楼三轴波形图](analysis/action_deep_audit/figures/)
+- [三轴波动分层汇总图](analysis/action_deep_audit/figures/action_axis_variability_summary.svg)
 
 ## 11. Project Status（项目状态）
 
