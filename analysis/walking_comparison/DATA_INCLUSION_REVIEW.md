@@ -8,6 +8,10 @@
 - `excluded`: a documented reason makes the dataset unsuitable for that stated analysis. Keep the original and record the reason.
 - `pending_verification`: evidence is incomplete or a material condition/quality issue remains unresolved.
 
+## Analysis-role classification
+
+See [`walking_final_role_classification.csv`](walking_final_role_classification.csv) for the 11-row role table. The role labels (primary candidate, auxiliary comparison, auxiliary sensor stratum, exploratory reference) describe intended analysis use only; they do not change the formal inclusion status.
+
 ## Current decision table
 
 All 11 walking records remain `pending_verification`. The available evidence does not support a final selected/excluded decision for every record.
