@@ -44,9 +44,7 @@ Before a dataset is used for formal analysis, verify:
 
 ## 6. Current Status
 
-Original datasets have not yet been fully inventoried and verified.
-
-The dataset inventory will be updated progressively as each original file is examined.
+The 39 ZIP archives in this directory have standardized repository filenames and one-to-one inventory entries. SHA-256 source mappings are retained in `data/metadata/dataset_sha256_mapping.csv`. Dataset-level action suitability and final analysis inclusion remain separate review decisions; structural checks alone do not establish experimental validity.
 
 ## 7. Standardized Repository Filenames (2026-11-02)
 
