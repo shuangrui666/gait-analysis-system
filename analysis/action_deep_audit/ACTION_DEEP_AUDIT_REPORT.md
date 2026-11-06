@@ -59,7 +59,16 @@
 - 三轴SD反映整段轴向离散程度，可能同时受动作、手机朝向、手持摆动、裤袋内移动及操作边界影响。不能仅凭SD决定动作标签或正式纳入状态。
 - 本轮不伪造稳定区间，不对原始CSV自动裁剪；视频逐组映射、精确动作稳定区间和独立动作速度测量仍保留为局限。
 
-## 5. 文件
+## 5. 三轴时域波形图
+
+以下图像由17组动作原始CSV生成，按动作分组展示X/Y/Z三轴时域波形。图中为便于阅读而下采样显示，统计分析仍使用完整采样序列；手持/裤袋及Total/Linear仍按原始分层保留。
+
+- [快跑7组波形图](figures/running_three_axis_waveforms.svg)
+- [上楼4组波形图](figures/upstairs_three_axis_waveforms.svg)
+- [下楼6组波形图](figures/downstairs_three_axis_waveforms.svg)
+- [动作分层三轴标准差汇总图](figures/action_axis_variability_summary.svg)
+
+## 6. 文件
 
 - `action_dataset_quality_and_magnitude.csv`：逐组采样质量与模长统计。
 - `action_three_axis_statistics.csv`：逐组X/Y/Z完整统计。
