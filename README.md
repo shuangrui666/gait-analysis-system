@@ -265,7 +265,11 @@ AI 输出不直接作为实验结论或未经验证的技术依据。所有关�
 ### 9.5 数据与分析
 
 - [数据登记表](data/metadata/dataset_inventory.csv)
-- [最终实验报告](docs/final_report.md)
+- [最终实验报告（阶段性提交版）](docs/final_report.md)
+- [Windows分析复现说明](docs/REPRODUCIBILITY.md)
+- [分析依赖](requirements-analysis.txt)
+- [分析脚本](scripts/analyze_phyphox_archives.py)
+- [走路组数据质量审计结果](analysis/walking_comparison/walking_raw_csv_audit_summary_round2.csv)
 - [11组走路数据分析角色分类表](analysis/walking_comparison/walking_final_role_classification.csv)
 - [走路组最终审核说明](analysis/walking_comparison/DATA_INCLUSION_REVIEW.md)
 
@@ -274,6 +278,21 @@ AI 输出不直接作为实验结论或未经验证的技术依据。所有关�
 ---
 
 ## 10. Reproducibility and Quality Control（可复现性与质量控制）
+
+### 10.1 运行分析
+
+在 Windows PowerShell 的仓库根目录执行：
+
+\`\`\`powershell
+py -3 -m venv .venv
+.\\.venv\\Scripts\\Activate.ps1
+python -m pip install -r requirements-analysis.txt
+python scripts/analyze_phyphox_archives.py
+\`\`\`
+
+默认分析静止与走路记录。脚本只读取原始 ZIP，并在 \`analysis/generated/\` 输出 SHA/CSV 质量审计表、记录级特征表和按传感器类型分开的模长总览图。完整说明见[分析复现说明](docs/REPRODUCIBILITY.md)。
+
+**重要：** 该脚本是基础描述性分析流水线，不会自动判断动作真实性、最终纳入状态或稳定步行区间，也不会计算分类准确率。
 
 为了提高实验过程的可追溯性和分析结果的可靠性，本项目逐步建立以下规范：
 
@@ -292,9 +311,9 @@ AI 输出不直接作为实验结论或未经验证的技术依据。所有关�
 
 ## 11. Project Status（项目状态）
 
-**当前阶段：最终交付收尾。**
+**当前阶段：阶段性报告与可复现基线已提交，最终验收进行中。**
 
-项目已包含实验历史、数据元数据、质量审计、静止组分析及走路组阶段性复核材料。走路组11条记录仍有待最终纳入判断；视频逐文件映射尚未全部确认；最终报告与远端验收仍需完成。不得将候选关联或候选区间表述为已确认结果。
+项目已包含实验历史、39组原始ZIP、数据元数据、SHA-256映射、静止组分析、11组走路数据基础质量复核、基础分析脚本和阶段性最终报告。走路组11条记录的正式纳入状态仍待逐组确认；视频清单登记29段，但本仓库 \`evidence/videos/\` 当前仅存放3段MP4；视频逐文件映射尚未全部确认。不得将候选关联或候选区间表述为已确认结果。
 
 交付清单与当前限制见[课题08仓库交付状态与最后检查清单](docs/DELIVERY_STATUS.md)。
 
