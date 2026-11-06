@@ -309,9 +309,17 @@ python scripts/analyze_phyphox_archives.py
 
 ---
 
+## 10.5 快跑与楼梯组分析
+
+- [快跑、上楼、下楼分析报告](analysis/running_stairs/ACTION_ANALYSIS_REPORT.md)
+- [逐组特征表](analysis/running_stairs/running_upstairs_downstairs_dataset_features.csv)
+- [分层比较汇总](analysis/running_stairs/running_upstairs_downstairs_stratified_summary.csv)
+- [逐组分析角色与证据状态](analysis/running_stairs/ACTION_DATASET_REVIEW.csv)
+- [复现脚本](scripts/analyze_running_stairs.py)
+
 ## 11. Project Status（项目状态）
 
-**当前阶段：阶段性报告与可复现基线已提交，最终验收进行中。**
+**当前阶段：快跑、上楼、下楼数据的阶段性分析已提交；整体项目保留未解决的证据映射和正式纳入事项。**
 
 项目已包含实验历史、39组原始ZIP、数据元数据、SHA-256映射、静止组分析、11组走路数据基础质量复核、基础分析脚本和阶段性最终报告。走路组11条记录的正式纳入状态仍待逐组确认；视频清单登记29段，但本仓库 \`evidence/videos/\` 当前仅存放3段MP4；视频逐文件映射尚未全部确认。不得将候选关联或候选区间表述为已确认结果。
 
