@@ -112,6 +112,8 @@ a(t)=\sqrt{a_x(t)^2+a_y(t)^2+a_z(t)^2}
 
 详细方法和限制见 [步行信号与特征分析](../analysis/walking_comparison/WALKING_FEATURE_ANALYSIS.md)。
 
+走路组图表：[11组波形总览](../analysis/walking_comparison/walking_waveforms_contact.png)、[GAIT-A8B03FC23EA3特征图](../analysis/walking_comparison/GAIT-A8B03FC23EA3_feature_analysis.png)、[GAIT-4F5177C0E51D特征图](../analysis/walking_comparison/GAIT-4F5177C0E51D_feature_analysis.jpg)。当前仅两组完成原始CSV全记录特征复算；11组正式状态均为 `pending_verification`。
+
 ## 5. 静止组结果
 
 静止组已有4组 Total 约500 Hz 数据的探索性对比，其中桌面1组、左裤袋3组。按每组中间80%样本计算加速度模长标准差：
@@ -125,7 +127,16 @@ a(t)=\sqrt{a_x(t)^2+a_y(t)^2+a_z(t)^2}
 
 在本次设备和中间80%统计口径下，裤袋组模长标准差高于桌面组；这仅为当前样本的描述性观察。桌面组只有1次，样本不平衡；裤袋姿态和人体微小动作也可能影响波动，不能据此推广为普遍规律或作显著性结论。裤袋第3组另有开头约0–3秒异常波动复核，分段统计见静止组审计文件。
 
-图表及详细过程见 [静止组分析目录](../analysis/static_position_comparison/README.md)。
+静止组图表及详细过程见 [静止组分析目录](../analysis/static_position_comparison/README.md)。
+
+### 静止组图表
+- [模长标准差对比图](../analysis/static_position_comparison/figures/acceleration_magnitude_std_comparison.svg)
+- [X轴时域对比图](../analysis/static_position_comparison/figures/x_axis_comparison.svg)
+- [Y轴时域对比图](../analysis/static_position_comparison/figures/y_axis_comparison.svg)
+- [Z轴时域对比图](../analysis/static_position_comparison/figures/z_axis_comparison.svg)
+- [裤袋静止三组复核图（PNG）](../analysis/static_position_comparison/figures/static_pocket_three_dataset_review.png)
+
+
 
 ## 6. 视频证据与关联边界
 
@@ -178,7 +189,9 @@ a(t)=\sqrt{a_x(t)^2+a_y(t)^2+a_z(t)^2}
 
 同条件比较（裤袋、Total、约500Hz）得到：快跑4组动态RMS均值12.39 m/s²，上楼4组4.79 m/s²，下楼5组5.85 m/s²。该结果仅是当前小样本的描述性结果，不代表统计显著，也不代表所有动作记录均已正式纳入。手持、Linear 100Hz数据均独立分层。
 
-逐组特征表、分层汇总、分析角色与证据状态表，以及复现脚本已提交至仓库的 analysis/running_stairs/ 和 scripts/analyze_running_stairs.py。逐组稳定区间、视频一对一关联和正式纳入状态仍按待核验保留；没有训练或评估动作分类模型。
+逐组特征表、分层汇总、分析角色与证据状态表，以及复现脚本已提交至仓库的 analysis/running_stairs/ 和 scripts/analyze_running_stairs.py。
+
+动作组图表：[快跑7组三轴波形](../analysis/action_deep_audit/figures/running_three_axis_waveforms.svg)、[上楼4组三轴波形](../analysis/action_deep_audit/figures/upstairs_three_axis_waveforms.svg)、[下楼6组三轴波形](../analysis/action_deep_audit/figures/downstairs_three_axis_waveforms.svg)、[三轴波动分层汇总图](../analysis/action_deep_audit/figures/action_axis_variability_summary.svg)。逐组稳定区间、视频一对一关联和正式纳入状态仍按待核验保留；没有训练或评估动作分类模型。
 
 
 ## 11. 快跑、上楼与下楼的逐组深度审计（2026-11-06）
